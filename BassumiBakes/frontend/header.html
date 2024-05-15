@@ -1,0 +1,62 @@
+<!-- header.html -->
+<header>
+    <!-- Boostrap Nav -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid" style="gap: 10px;">
+            <img src="./img/cakelogo.png" class="rounded " alt="Responsive image" style="height: 60px; padding-top:4px ;" >
+            <a class="navbar-brand text-white" href="/" >Bassumi Bakes</a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="contactus.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="aboutUs.html">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="cakes.html">Cakes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="fillings.html">Fillings</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="faq.html">FAQs</a>
+                    </li>
+                    
+                    <!-- <li class="nav-item d-none adminLink">
+                        <a class="nav-link text-white" href="users.html">Users</a>
+                    </li> -->
+                    <li class="nav-item d-none adminLink">
+                        <a class="nav-link text-white" href="contacted.html">Contacted</a>
+                    </li> 
+
+                </ul>
+            </div>
+            <div id="authButtons"></div>
+        </div>
+    </nav>
+</header>
+<script>
+    // Check if user is logged in and show appropriate buttons
+    const accessToken = localStorage.getItem('token');
+    if (accessToken) {
+        document.getElementById('authButtons').innerHTML = '<button class="btn text-white" onclick="logout()">Logout</button>';
+    } else {
+        document.getElementById('authButtons').innerHTML = '<a class="btn text-white" href="login.html">Login</a>';
+        document.getElementById('authButtons').innerHTML += '  <a class="btn text-white" href="register.html">Register</a>';
+    }
+
+    if(isAdmin){
+        for (const item of document.getElementsByClassName('adminLink')) {
+            item.classList.remove('d-none');
+        }
+    }
+</script>
